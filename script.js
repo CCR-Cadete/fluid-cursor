@@ -62,14 +62,14 @@ let config = {
     CAPTURE_RESOLUTION: 512,
     DENSITY_DISSIPATION: 0.97,
     VELOCITY_DISSIPATION: 0.96,
-    PRESSURE: 0.6,
+    PRESSURE: 0.8,
     PRESSURE_ITERATIONS: 20,
     CURL: 8,
     SPLAT_RADIUS: 0.04,
     SPLAT_FORCE: 1200,
     SHADING: false,
     COLORFUL: false,
-    COLOR_UPDATE_SPEED: 1,
+    COLOR_UPDATE_SPEED: 10,
     PAUSED: false,
     BACK_COLOR: { r: 5, g: 7, b: 15 },
     TRANSPARENT: false,
@@ -79,7 +79,7 @@ let config = {
     BLOOM_INTENSITY: 0.3,
     BLOOM_THRESHOLD: 0.8,
     BLOOM_SOFT_KNEE: 0.7,
-    SUNRAYS: true,
+    SUNRAYS: false,
     SUNRAYS_RESOLUTION: 196,
     SUNRAYS_WEIGHT: 1.0,
 }
@@ -1562,9 +1562,9 @@ function correctDeltaY (delta) {
     return delta;
 }
 
-function generateColor() {
-    const variation = Math.random() * 0.04;
-    return { r: 0.01 + variation, g: 0.02 + variation, b: 0.12 + variation * 2 };
+function generateColor () {
+    const v = Math.random() * 0.03;
+    return { r: 0.01 + v, g: 0.015 + v, b: 0.1 + v * 2 };
 }
 
 function HSVtoRGB (h, s, v) {
