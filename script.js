@@ -71,8 +71,8 @@ let config = {
     COLORFUL: false,
     COLOR_UPDATE_SPEED: 10,
     PAUSED: false,
-    BACK_COLOR: { r: 5, g: 7, b: 15 },
-    TRANSPARENT: false,
+    BACK_COLOR: { r: 0, g: 0, b: 0 },
+    TRANSPARENT: true,
     BLOOM: false,
     BLOOM_ITERATIONS: 8,
     BLOOM_RESOLUTION: 256,
@@ -1472,10 +1472,13 @@ canvas.addEventListener('mousedown', e => {
 
 canvas.addEventListener('mousemove', e => {
     let pointer = pointers[0];
-    if (!pointer.down) return;
     let posX = scaleByPixelRatio(e.offsetX);
     let posY = scaleByPixelRatio(e.offsetY);
+    if (!pointer.down) {
+        pointer.color = generateColor();
+    }
     updatePointerMoveData(pointer, posX, posY);
+    pointer.moved = true;
 });
 
 window.addEventListener('mouseup', () => {
