@@ -222,9 +222,8 @@
         </div>
 
         <script src="./script.js"></script>
-    </body>
-    <script>
-  // Recebe posição do mouse da página pai
+        
+        // Recebe posição do mouse da página pai
   window.addEventListener('message', function(e) {
     if (e.data && e.data.type === 'mousemove') {
       var event = new MouseEvent('mousemove', {
@@ -235,5 +234,7 @@
       document.dispatchEvent(event);
     }
   });
+    </body>
+    <script>
 </script>
 </html>
